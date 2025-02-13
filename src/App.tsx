@@ -24,7 +24,7 @@ const App = () => (
         <SidebarProvider>
           <div className="flex min-h-screen w-full">
             <AppSidebar />
-            <main className="flex-1">
+            <main className="flex-1 transition-all duration-200 ease-in-out">
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/parent" element={<ParentDashboard />} />
