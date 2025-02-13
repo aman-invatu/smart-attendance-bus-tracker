@@ -1,6 +1,7 @@
 
 import { Bell, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export const Navbar = () => {
   return (
@@ -8,9 +9,9 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
+            <SidebarTrigger>
               <Menu className="h-5 w-5" />
-            </Button>
+            </SidebarTrigger>
             <h1 className="text-xl font-semibold text-gray-900">SmartTrack</h1>
           </div>
           
