@@ -12,33 +12,43 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import DriverDashboard from "./pages/DriverDashboard";
 import NotFound from "./pages/NotFound";
+import { useState } from 'react';
 
-const queryClient = new QueryClient();
+function App() {
+  const [queryClient] = useState(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+        retry: 1,
+      },
+    },
+  }));
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <TooltipProvider>
-        <SidebarProvider>
-          <div className="flex min-h-screen w-full">
-            <AppSidebar />
-            <main className="flex-1 transition-all duration-200 ease-in-out">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/parent" element={<ParentDashboard />} />
-                <Route path="/teacher" element={<TeacherDashboard />} />
-                <Route path="/admin" element={<AdminDashboard />} />
-                <Route path="/driver" element={<DriverDashboard />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-          </div>
-        </SidebarProvider>
-        <Toaster />
-        <Sonner />
-      </TooltipProvider>
-    </BrowserRouter>
-  </QueryClientProvider>
-);
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <TooltipProvider>
+          <SidebarProvider>
+            <div className="flex min-h-screen w-full">
+              <AppSidebar />
+              <main className="flex-1 transition-all duration-200 ease-in-out">
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/parent" element={<ParentDashboard />} />
+                  <Route path="/teacher" element={<TeacherDashboard />} />
+                  <Route path="/admin" element={<AdminDashboard />} />
+                  <Route path="/driver" element={<DriverDashboard />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+            </div>
+          </SidebarProvider>
+          <Toaster />
+          <Sonner />
+        </TooltipProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
