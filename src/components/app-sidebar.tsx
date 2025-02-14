@@ -45,41 +45,48 @@ export function AppSidebar() {
 
   return (
     <Sidebar className="border-r border-border/50 bg-[#1a2236] backdrop-blur supports-[backdrop-filter]:bg-[#1a2236]/95">
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel className="font-bold text-lg px-2 py-4 text-white flex items-center gap-2">
+      <SidebarContent className="flex flex-col h-full">
+        {/* Logo Section */}
+        <div className="p-4 border-b border-white/10">
+          <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
               <span className="text-[#1a2236] font-bold text-xl">ST</span>
             </div>
-            <span>SmartTrack</span>
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {menuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton 
-                    asChild 
-                    isActive={location.pathname === item.url}
-                    tooltip={item.title}
-                    className="flex items-center gap-3 px-3 py-2 hover:bg-white/10 rounded-lg transition-colors"
-                  >
-                    <Link 
-                      to={item.url} 
-                      className={`flex items-center gap-3 ${
-                        location.pathname === item.url 
-                          ? 'text-white' 
-                          : 'text-gray-400 hover:text-white'
-                      }`}
+            <span className="text-white font-bold text-lg">SmartTrack</span>
+          </div>
+        </div>
+
+        {/* Navigation Section */}
+        <div className="flex-1 py-6">
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {menuItems.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton 
+                      asChild 
+                      isActive={location.pathname === item.url}
+                      tooltip={item.title}
+                      className="flex items-center gap-3 px-3 py-2 hover:bg-white/10 rounded-lg transition-colors"
                     >
-                      <item.icon className="h-5 w-5" />
-                      <span className="font-medium">{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+                      <Link 
+                        to={item.url} 
+                        className={`flex items-center gap-3 ${
+                          location.pathname === item.url 
+                            ? 'text-white' 
+                            : 'text-gray-400 hover:text-white'
+                        }`}
+                      >
+                        <item.icon className="h-5 w-5" />
+                        <span className="font-medium">{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
       </SidebarContent>
     </Sidebar>
   );
