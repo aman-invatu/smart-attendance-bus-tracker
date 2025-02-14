@@ -1,5 +1,5 @@
 
-import { Bell, Menu, User } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
@@ -16,7 +16,12 @@ export const Navbar = () => {
                 <div className="w-6 h-0.5 bg-current transform transition-all group-hover:-translate-y-0.5"></div>
               </div>
             </SidebarTrigger>
-            <h1 className="text-xl font-semibold text-gray-900">SmartTrack</h1>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-[#1a2236] rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-xl">ST</span>
+              </div>
+              <h1 className="text-xl font-semibold text-gray-900">SmartTrack</h1>
+            </div>
           </div>
           
           <div className="flex items-center space-x-4">
