@@ -5,34 +5,27 @@ export interface Student {
   rfidTag: string;
   class: string;
   busRoute: string;
-  lastSeen?: Date;
+  lastSeen: Date;
   isPresent: boolean;
+}
+
+export interface BusDriver {
+  id: string;
+  name: string;
+  phone: string;
+  status: 'on-route' | 'off-duty';
+}
+
+export interface Coordinates {
+  lat: number;
+  lng: number;
 }
 
 export interface BusRoute {
   id: string;
   name: string;
-  driver: Driver;
+  driver: BusDriver;
   students: Student[];
-  currentLocation?: {
-    lat: number;
-    lng: number;
-  };
-  status: 'active' | 'inactive' | 'completed';
-}
-
-export interface Driver {
-  id: string;
-  name: string;
-  phone: string;
-  route?: BusRoute;
-  status: 'available' | 'on-route' | 'off-duty';
-}
-
-export interface AttendanceRecord {
-  id: string;
-  studentId: string;
-  timestamp: Date;
-  type: 'entry' | 'exit';
-  location: 'school' | 'bus';
+  currentLocation: Coordinates;
+  status: 'active' | 'completed' | 'cancelled';
 }
