@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Card } from "@/components/ui/card";
 import { BusRoute } from "@/types";
 import mapboxgl from 'mapbox-gl';
@@ -14,11 +14,13 @@ const DUMMY_BUS_LOCATION = {
   lng: -74.0060
 };
 
+// Replace this with your public Mapbox token from mapbox.com
+const MAPBOX_TOKEN = 'pk.ey...'; // Add your public token here
+
 export const MapView = ({ routes }: MapViewProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const marker = useRef<mapboxgl.Marker | null>(null);
-  const [mapboxToken, setMapboxToken] = useState<string>('');
 
   // This would typically come from your backend
   const updateBusLocation = () => {
@@ -34,16 +36,7 @@ export const MapView = ({ routes }: MapViewProps) => {
   useEffect(() => {
     if (!mapRef.current) return;
 
-    // Temporary input field for Mapbox token
-    if (!mapboxToken) {
-      const token = prompt('Please enter your Mapbox public token (you can get one from mapbox.com):');
-      if (token) {
-        setMapboxToken(token);
-      }
-      return;
-    }
-
-    mapboxgl.accessToken = mapboxToken;
+    mapboxgl.accessToken = MAPBOX_TOKEN;
 
     // Initialize map
     map.current = new mapboxgl.Map({
@@ -70,19 +63,13 @@ export const MapView = ({ routes }: MapViewProps) => {
         map.current.remove();
       }
     };
-  }, [mapboxToken]);
+  }, []);
 
   return (
     <div className="card-transition">
       <h2 className="text-lg font-semibold mb-4">Live Tracking</h2>
       <Card className="glass-card h-[400px] relative overflow-hidden">
-        <div ref={mapRef} className="absolute inset-0">
-          {!mapboxToken && (
-            <div className="flex items-center justify-center h-full text-gray-500">
-              Please enter your Mapbox token to view the map
-            </div>
-          )}
-        </div>
+        <div ref={mapRef} className="absolute inset-0" />
       </Card>
     </div>
   );
