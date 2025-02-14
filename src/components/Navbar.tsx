@@ -10,7 +10,11 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
             <SidebarTrigger>
-              <Menu className="h-5 w-5 hover:text-primary transition-colors" />
+              <div className="flex flex-col space-y-1.5 hover:text-primary transition-all group">
+                <div className="w-6 h-0.5 bg-current transform transition-all group-hover:translate-y-0.5"></div>
+                <div className="w-6 h-0.5 bg-current"></div>
+                <div className="w-6 h-0.5 bg-current transform transition-all group-hover:-translate-y-0.5"></div>
+              </div>
             </SidebarTrigger>
             <h1 className="text-xl font-semibold text-gray-900">SmartTrack</h1>
           </div>

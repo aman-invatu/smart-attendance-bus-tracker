@@ -44,10 +44,10 @@ export function AppSidebar() {
   const location = useLocation();
 
   return (
-    <Sidebar className="border-r border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <Sidebar className="border-r border-border/50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="font-bold text-lg px-2 py-4">SmartTrack</SidebarGroupLabel>
+          <SidebarGroupLabel className="font-bold text-lg px-2 py-4 text-primary">SmartTrack</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {menuItems.map((item) => (
@@ -56,9 +56,16 @@ export function AppSidebar() {
                     asChild 
                     isActive={location.pathname === item.url}
                     tooltip={item.title}
-                    className="flex items-center gap-3 px-3 py-2 hover:bg-accent rounded-lg transition-colors"
+                    className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg transition-colors"
                   >
-                    <Link to={item.url}>
+                    <Link 
+                      to={item.url} 
+                      className={`flex items-center gap-3 ${
+                        location.pathname === item.url 
+                          ? 'text-primary' 
+                          : 'text-gray-600 hover:text-primary'
+                      }`}
+                    >
                       <item.icon className="h-5 w-5" />
                       <span className="font-medium">{item.title}</span>
                     </Link>
