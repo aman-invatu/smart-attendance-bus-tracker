@@ -96,21 +96,29 @@ export default function LandingPage() {
       {/* Hero Section with Carousel */}
       <section className="relative bg-gradient-to-r from-primary-50 to-primary-100 py-20 overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <Carousel className="w-full h-[400px] mb-8">
+          <div className="max-w-6xl mx-auto">
+            <Carousel 
+              className="w-full h-[600px] mb-8"
+              opts={{
+                align: "start",
+                loop: true,
+                duration: 1000,
+                autoplay: true,
+                interval: 1000,
+              }}
+            >
               <CarouselContent>
-                <CarouselItem>
-                  <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625" alt="School" className="w-full h-[400px] object-cover rounded-lg animate-fade-in" />
-                </CarouselItem>
-                <CarouselItem>
-                  <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" alt="Technology" className="w-full h-[400px] object-cover rounded-lg animate-fade-in" />
-                </CarouselItem>
-                <CarouselItem>
-                  <img src="https://images.unsplash.com/photo-1452378174528-3090a4bba7b2" alt="School 2" className="w-full h-[400px] object-cover rounded-lg animate-fade-in" />
-                </CarouselItem>
-                <CarouselItem>
-                  <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" alt="Tech 2" className="w-full h-[400px] object-cover rounded-lg animate-fade-in" />
-                </CarouselItem>
+                {[
+                  "/lovable-uploads/5a89f66b-7d4e-474a-b46c-1548c3f06118.png",
+                  "/lovable-uploads/95858b67-3347-4da0-a22c-0d23be5cc910.png",
+                  "/lovable-uploads/a264bd5e-a569-4315-b983-f1742fb79188.png",
+                  "/lovable-uploads/d5ec4bea-485a-437f-a9bf-3aa562207891.png",
+                  "/lovable-uploads/f3f91f39-14e4-47c7-a830-e5472173a25b.png"
+                ].map((src, index) => (
+                  <CarouselItem key={index}>
+                    <img src={src} alt={`Slide ${index + 1}`} className="w-full h-[600px] object-cover rounded-lg animate-fade-in" />
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               <CarouselPrevious />
               <CarouselNext />
@@ -131,52 +139,79 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features Section with Animations */}
+      {/* Features Section with Rotating Animations */}
       <section id="features" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in">What We Offer</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 border rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in">
-              <div className="flex flex-col items-center mb-4">
-                <img src="https://images.unsplash.com/photo-1487252665478-49b61b47f302" alt="Parents" className="w-full h-48 object-cover rounded-lg mb-4" />
-                <h3 className="text-xl font-semibold">For Parents</h3>
+            {[
+              {
+                image: "/lovable-uploads/83b7ab4e-0392-432a-9487-774c1eb04007.png",
+                title: "For Parents",
+                features: [
+                  "Real-time bus location tracking",
+                  "Instant notifications for pickup/drop-off",
+                  "Attendance monitoring",
+                  "Route updates and changes",
+                  "Emergency alerts",
+                  "Direct communication with drivers"
+                ]
+              },
+              {
+                image: "/lovable-uploads/988058e8-0a66-4bac-81da-a6326f32ea8a.png",
+                title: "For Teachers",
+                features: [
+                  "Student attendance management",
+                  "Bus schedule monitoring",
+                  "Communication with drivers",
+                  "Emergency notifications",
+                  "Class management tools",
+                  "Performance tracking"
+                ]
+              },
+              {
+                image: "/lovable-uploads/6ec8df80-5e28-451c-8773-df618efd1a39.png",
+                title: "For Drivers",
+                features: [
+                  "Optimized route navigation",
+                  "Digital attendance taking",
+                  "Emergency alert system",
+                  "Parent communication channel",
+                  "Real-time traffic updates",
+                  "Vehicle maintenance tracking"
+                ]
+              }
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className="p-6 border rounded-lg hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 animate-fade-in group h-[600px]"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className="flex flex-col items-center mb-6">
+                  <div className="relative w-64 h-64 mb-6 group-hover:rotate-360 transition-transform duration-1000">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
+                </div>
+                <ul className="space-y-3 text-gray-600">
+                  {item.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Real-time bus location tracking</li>
-                <li>• Instant notifications for pickup/drop-off</li>
-                <li>• Attendance monitoring</li>
-                <li>• Route updates and changes</li>
-              </ul>
-            </div>
-            <div className="p-6 border rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in delay-100">
-              <div className="flex flex-col items-center mb-4">
-                <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625" alt="Teachers" className="w-full h-48 object-cover rounded-lg mb-4" />
-                <h3 className="text-xl font-semibold">For Teachers</h3>
-              </div>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Student attendance management</li>
-                <li>• Bus schedule monitoring</li>
-                <li>• Communication with drivers</li>
-                <li>• Emergency notifications</li>
-              </ul>
-            </div>
-            <div className="p-6 border rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in delay-200">
-              <div className="flex flex-col items-center mb-4">
-                <img src="https://images.unsplash.com/photo-1452378174528-3090a4bba7b2" alt="Drivers" className="w-full h-48 object-cover rounded-lg mb-4" />
-                <h3 className="text-xl font-semibold">For Drivers</h3>
-              </div>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Optimized route navigation</li>
-                <li>• Digital attendance taking</li>
-                <li>• Emergency alert system</li>
-                <li>• Parent communication channel</li>
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Roadmap Section */}
+      {/* Roadmap Section with Enhanced Animations */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in">Our Roadmap</h2>
@@ -235,22 +270,32 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Gallery Section with New Layout */}
+      {/* Gallery Section with Navigation */}
       <section id="gallery" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in">Gallery</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-6 animate-fade-in">
-              <img src="https://images.unsplash.com/photo-1487252665478-49b61b47f302" alt="School Bus" className="rounded-lg hover:opacity-75 transition-opacity w-full h-64 object-cover" />
-              <img src="https://images.unsplash.com/photo-1452378174528-3090a4bba7b2" alt="School" className="rounded-lg hover:opacity-75 transition-opacity w-full h-64 object-cover" />
-              <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" alt="Technology" className="rounded-lg hover:opacity-75 transition-opacity w-full h-64 object-cover" />
-            </div>
-            <div className="space-y-6 animate-fade-in delay-100">
-              <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" alt="Tech" className="rounded-lg hover:opacity-75 transition-opacity w-full h-64 object-cover" />
-              <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625" alt="School Building" className="rounded-lg hover:opacity-75 transition-opacity w-full h-64 object-cover" />
-              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" alt="Dashboard" className="rounded-lg hover:opacity-75 transition-opacity w-full h-64 object-cover" />
-            </div>
-          </div>
+          <Carousel className="w-full max-w-5xl mx-auto">
+            <CarouselContent>
+              {[
+                "/lovable-uploads/5a89f66b-7d4e-474a-b46c-1548c3f06118.png",
+                "/lovable-uploads/95858b67-3347-4da0-a22c-0d23be5cc910.png",
+                "/lovable-uploads/a264bd5e-a569-4315-b983-f1742fb79188.png",
+                "/lovable-uploads/d5ec4bea-485a-437f-a9bf-3aa562207891.png"
+              ].map((src, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                  <div className="p-1">
+                    <img 
+                      src={src} 
+                      alt={`Gallery ${index + 1}`} 
+                      className="rounded-lg hover:opacity-75 transition-opacity w-full h-[400px] object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
 

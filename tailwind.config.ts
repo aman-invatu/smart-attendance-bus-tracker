@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -72,12 +71,20 @@ export default {
         "scale-in": {
           "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" }
+        },
+        "rotate-360": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
         }
       },
       animation: {
         "fade-in": "fade-in 0.3s ease-out",
         "fade-out": "fade-out 0.3s ease-out",
-        "scale-in": "scale-in 0.2s ease-out"
+        "scale-in": "scale-in 0.2s ease-out",
+        "rotate-360": "rotate-360 1s ease-in-out"
+      },
+      transitionProperty: {
+        'transform': 'transform',
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"]
