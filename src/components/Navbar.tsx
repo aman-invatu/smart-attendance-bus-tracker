@@ -16,13 +16,9 @@ export const Navbar = () => {
                 <div className="w-6 h-0.5 bg-current transform transition-all group-hover:-translate-y-0.5"></div>
               </div>
             </SidebarTrigger>
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-[#1a2236] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">ST</span>
-                </div>
-                <h1 className="text-xl font-semibold text-gray-900">SmartTrack</h1>
-              </div>
+            <div className="flex items-center gap-4">
+              <img src="/lovable-uploads/3a7b3290-4432-4467-9f5c-ae04bc291bc7.png" alt="Smart Tracker" className="h-8" />
+              <h1 className="text-xl font-semibold text-gray-900">SmartTrack</h1>
             </div>
           </div>
           
