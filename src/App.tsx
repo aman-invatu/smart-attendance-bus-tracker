@@ -9,6 +9,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import ParentDashboard from "./pages/ParentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -42,6 +43,19 @@ function App() {
                     <AppSidebar />
                     <main className="flex-1 transition-all duration-200 ease-in-out">
                       <Index />
+                    </main>
+                  </div>
+                </SidebarProvider>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar />
+                    <main className="flex-1 transition-all duration-200 ease-in-out">
+                      <Profile />
                     </main>
                   </div>
                 </SidebarProvider>

@@ -6,7 +6,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -16,7 +15,12 @@ const menuItems = [
   {
     title: "Home",
     icon: Home,
-    url: "/",
+    url: "/dashboard",
+  },
+  {
+    title: "Profile",
+    icon: UserCircle,
+    url: "/profile",
   },
   {
     title: "Parent Dashboard",
@@ -48,11 +52,8 @@ export function AppSidebar() {
       <SidebarContent className="flex flex-col h-full">
         {/* Logo Section */}
         <div className="p-4 border-b border-white/10">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-              <span className="text-[#1a2236] font-bold text-xl">ST</span>
-            </div>
-            <span className="text-white font-bold text-lg">SmartTrack</span>
+          <div className="flex items-center justify-center">
+            <img src="/lovable-uploads/3a7b3290-4432-4467-9f5c-ae04bc291bc7.png" alt="Smart Tracker" className="h-12" />
           </div>
         </div>
 
