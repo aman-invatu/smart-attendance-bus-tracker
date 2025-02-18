@@ -15,19 +15,7 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.email === "user@gmail.com" && formData.password === "user123") {
-      toast({
-        title: "Success",
-        description: "Login successful!",
-      });
-      navigate("/dashboard");
-    } else {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Invalid credentials. Please try again.",
-      });
-    }
+    navigate("/dashboard");
   };
 
   return (

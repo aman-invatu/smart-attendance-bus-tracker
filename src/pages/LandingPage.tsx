@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Phone, Mail, Globe, MapPin, ArrowUp } from "lucide-react";
+import { Facebook, Twitter, Instagram, Phone, Mail, Globe, MapPin, ArrowUp, ArrowRight, Check, Code, Users, School, Book, Rocket } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -82,9 +82,9 @@ export default function LandingPage() {
             <div className="flex items-center gap-6">
               <a href="#features" className="text-gray-600 hover:text-primary">Features</a>
               <a href="#gallery" className="text-gray-600 hover:text-primary">Gallery</a>
-              <Link to="/roadmap" className="text-gray-600 hover:text-primary">Roadmap</Link>
-              <Link to="/admission-process" className="text-gray-600 hover:text-primary">Admission</Link>
-              <Link to="/future-plans" className="text-gray-600 hover:text-primary">Future Plans</Link>
+              <a href="#roadmap" className="text-gray-600 hover:text-primary">Roadmap</a>
+              <a href="#admission" className="text-gray-600 hover:text-primary">Admission</a>
+              <a href="#future-plans" className="text-gray-600 hover:text-primary">Future Plans</a>
               <a href="#contact" className="text-gray-600 hover:text-primary">Contact</a>
               <Link to="/login">
                 <Button>Sign In</Button>
@@ -241,6 +241,203 @@ export default function LandingPage() {
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
+          </div>
+        </section>
+
+        <section id="roadmap" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Our Roadmap</h2>
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-12">
+                {[
+                  {
+                    year: "2024",
+                    title: "Foundation Phase",
+                    description: "Establishing core infrastructure and initial school bus tracking system implementation.",
+                    milestones: [
+                      "Launch of basic tracking system",
+                      "Parent app development",
+                      "Driver training programs",
+                      "Initial security protocols"
+                    ]
+                  },
+                  {
+                    year: "2025",
+                    title: "Expansion Phase",
+                    description: "Scaling our services and enhancing feature set.",
+                    milestones: [
+                      "Advanced analytics implementation",
+                      "Real-time communication system",
+                      "Integration with school management systems",
+                      "Enhanced security features"
+                    ]
+                  },
+                  {
+                    year: "2026",
+                    title: "Innovation Phase",
+                    description: "Introducing cutting-edge technologies and expanding reach.",
+                    milestones: [
+                      "AI-powered route optimization",
+                      "Predictive maintenance system",
+                      "Cross-platform integration",
+                      "International expansion"
+                    ]
+                  }
+                ].map((phase, index) => (
+                  <div key={index} className="relative flex gap-8 animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
+                    <div className="w-32 text-lg font-bold text-primary">{phase.year}</div>
+                    <div className="flex-1 pb-12 border-l-2 border-primary pl-8">
+                      <div className="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"></div>
+                      <h3 className="text-2xl font-semibold mb-4">{phase.title}</h3>
+                      <p className="text-gray-600 mb-4">{phase.description}</p>
+                      <ul className="space-y-2">
+                        {phase.milestones.map((milestone, idx) => (
+                          <li key={idx} className="flex items-center gap-2">
+                            <ArrowRight className="h-4 w-4 text-primary" />
+                            <span>{milestone}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="admission" className="py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Admission Process</h2>
+            <div className="max-w-4xl mx-auto space-y-16">
+              {[
+                {
+                  step: 1,
+                  title: "Initial Application",
+                  description: "Begin your journey by submitting the online application form with basic information about the student and family.",
+                  requirements: [
+                    "Completed application form",
+                    "Birth certificate",
+                    "Previous academic records",
+                    "Passport size photographs"
+                  ]
+                },
+                {
+                  step: 2,
+                  title: "Document Verification",
+                  description: "Our team will verify all submitted documents and contact you for any additional information if needed.",
+                  requirements: [
+                    "Address proof",
+                    "Parent ID documents",
+                    "Transfer certificate (if applicable)",
+                    "Medical records"
+                  ]
+                },
+                {
+                  step: 3,
+                  title: "Assessment & Interview",
+                  description: "Students undergo age-appropriate assessments and parents participate in an interview with school administrators.",
+                  requirements: [
+                    "Student assessment",
+                    "Parent interview",
+                    "Previous school reports",
+                    "Special needs documentation (if applicable)"
+                  ]
+                },
+                {
+                  step: 4,
+                  title: "Admission Confirmation",
+                  description: "Upon successful completion of all steps, admission is confirmed through payment of fees and final documentation.",
+                  requirements: [
+                    "Admission fee payment",
+                    "Signed agreement",
+                    "Transportation form",
+                    "Emergency contact information"
+                  ]
+                }
+              ].map((step, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-lg p-8 animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
+                  <div className="flex items-start gap-6">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-xl">
+                      {step.step}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
+                      <p className="text-gray-600 mb-6">{step.description}</p>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {step.requirements.map((req, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <Check className="h-5 w-5 text-primary" />
+                            <span>{req}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="future-plans" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Future Plans</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Globe,
+                  title: "Global Expansion",
+                  description: "Expanding our presence across multiple countries to provide quality education worldwide.",
+                  timeline: "2024-2025"
+                },
+                {
+                  icon: Code,
+                  title: "Technology Integration",
+                  description: "Implementing cutting-edge educational technology and digital learning platforms.",
+                  timeline: "2024-2026"
+                },
+                {
+                  icon: Users,
+                  title: "Community Engagement",
+                  description: "Building stronger partnerships with local communities and educational institutions.",
+                  timeline: "2024-2027"
+                },
+                {
+                  icon: School,
+                  title: "New Campuses",
+                  description: "Opening state-of-the-art campuses in strategic locations worldwide.",
+                  timeline: "2025-2027"
+                },
+                {
+                  icon: Book,
+                  title: "Curriculum Enhancement",
+                  description: "Developing innovative curricula that combine traditional and modern learning approaches.",
+                  timeline: "2024-2026"
+                },
+                {
+                  icon: Rocket,
+                  title: "Research & Development",
+                  description: "Establishing research centers for educational innovation and development.",
+                  timeline: "2025-2028"
+                }
+              ].map((plan, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white rounded-lg shadow-lg p-8 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-6 p-4 bg-primary/10 rounded-full">
+                      <plan.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-4">{plan.title}</h3>
+                    <p className="text-gray-600 mb-4">{plan.description}</p>
+                    <span className="text-sm font-medium text-primary">{plan.timeline}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

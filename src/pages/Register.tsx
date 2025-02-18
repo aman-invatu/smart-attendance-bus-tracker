@@ -13,6 +13,7 @@ export default function Register() {
     email: "",
     password: "",
     confirmPassword: "",
+    role: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -70,6 +71,26 @@ export default function Register() {
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
             />
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="role" className="text-sm font-medium">
+              Role
+            </label>
+            <select
+              id="role"
+              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+              value={formData.role}
+              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+              required
+            >
+              <option value="">Select a role</option>
+              <option value="student">Student</option>
+              <option value="parent">Parent</option>
+              <option value="teacher">Teacher</option>
+              <option value="driver">Bus Driver</option>
+              <option value="other">Other</option>
+            </select>
           </div>
 
           <div className="space-y-2">
