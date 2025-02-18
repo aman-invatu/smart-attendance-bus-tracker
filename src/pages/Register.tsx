@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -37,9 +36,9 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <Card className="w-full max-w-md p-8 space-y-6">
         <div className="text-center space-y-2">
-          <div className="flex justify-center mb-6">
+          <Link to="/" className="inline-block mb-6">
             <img src="/lovable-uploads/3a7b3290-4432-4467-9f5c-ae04bc291bc7.png" alt="Smart Tracker" className="h-16" />
-          </div>
+          </Link>
           <h1 className="text-2xl font-bold">Create Account</h1>
           <p className="text-gray-500">Sign up to get started</p>
         </div>
