@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,6 +15,9 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import DriverDashboard from "./pages/DriverDashboard";
 import NotFound from "./pages/NotFound";
+import Roadmap from "./pages/Roadmap";
+import AdmissionProcess from "./pages/AdmissionProcess";
+import FuturePlans from "./pages/FuturePlans";
 import { useState } from 'react';
 
 function App() {
@@ -36,6 +38,9 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/roadmap" element={<Roadmap />} />
+            <Route path="/admission-process" element={<AdmissionProcess />} />
+            <Route path="/future-plans" element={<FuturePlans />} />
             <Route
               path="/dashboard"
               element={

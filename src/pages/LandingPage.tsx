@@ -81,8 +81,10 @@ export default function LandingPage() {
             </div>
             <div className="flex items-center gap-6">
               <a href="#features" className="text-gray-600 hover:text-primary">Features</a>
-              <a href="#about" className="text-gray-600 hover:text-primary">About</a>
               <a href="#gallery" className="text-gray-600 hover:text-primary">Gallery</a>
+              <Link to="/roadmap" className="text-gray-600 hover:text-primary">Roadmap</Link>
+              <Link to="/admission-process" className="text-gray-600 hover:text-primary">Admission</Link>
+              <Link to="/future-plans" className="text-gray-600 hover:text-primary">Future Plans</Link>
               <a href="#contact" className="text-gray-600 hover:text-primary">Contact</a>
               <Link to="/login">
                 <Button>Sign In</Button>
@@ -209,36 +211,36 @@ export default function LandingPage() {
         <section id="gallery" className="py-20 bg-gradient-to-br from-[#1a2236] to-[#2a3246]">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12 text-white animate-fade-in">Gallery</h2>
-            <div className="grid grid-cols-3 gap-8 perspective-1000">
-              {[
-                {
-                  image: "/lovable-uploads/510db669-4e5d-44cf-b66d-e9f0cdcac59e.png",
-                  title: "School Bus Tracking"
-                },
-                {
-                  image: "/lovable-uploads/188e2a79-2218-4d37-a95f-a4c3f8fb14c6.png",
-                  title: "Real-time Monitoring"
-                },
-                {
-                  image: "/lovable-uploads/b0f77e6c-a934-4325-896c-c5e00e178728.png",
-                  title: "Parent Dashboard"
-                }
-              ].map((item, index) => (
-                <div 
-                  key={index}
-                  className="transform transition-all duration-500 hover:scale-105 hover:rotate-y-12"
-                >
-                  <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-64 object-cover rounded-lg mb-4"
-                    />
-                    <h3 className="text-lg font-semibold text-white text-center">{item.title}</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Carousel className="w-full max-w-5xl mx-auto">
+              <CarouselContent>
+                {[
+                  "/lovable-uploads/5f8b8bb9-d084-4787-bf80-1aa67090042d.png",
+                  "/lovable-uploads/19351f74-94f9-4806-8536-1c5136d6b8e1.png",
+                  "/lovable-uploads/722acf91-2316-4bc6-a1e3-25bfb02e6964.png",
+                  "/lovable-uploads/cf4c7c87-1ad6-47f3-8806-8eb53dc9a83f.png",
+                  "/lovable-uploads/ec2412fc-dc29-4b10-bff1-1c3f87e6724c.png",
+                  "/lovable-uploads/e1834da6-7e6d-4a40-8b68-ee78678067ff.png",
+                  "/lovable-uploads/6d908ffd-5c71-4376-b4ab-f0666efb4e5b.png",
+                  "/lovable-uploads/044c49b6-9f67-4ccf-b450-156c8385eddf.png",
+                  "/lovable-uploads/eae6c147-f69b-4fe2-a60e-80b5c20be302.png",
+                  "/lovable-uploads/fe883106-a10e-49c5-81c0-7a57c8e8da0c.png",
+                  "/lovable-uploads/0348ac36-3dab-4c08-90e6-5341007ddcc1.png",
+                  "/lovable-uploads/9342ad9b-1b3c-4b0f-9b89-6e16db1f4d9b.png"
+                ].map((src, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <img 
+                        src={src} 
+                        alt={`Gallery ${index + 1}`}
+                        className="w-full h-64 object-cover rounded-lg hover:opacity-75 transition-opacity"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </section>
 
