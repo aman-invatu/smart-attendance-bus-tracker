@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,7 +25,7 @@ export default function Profile() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 mt-20">
         <Card className="max-w-2xl mx-auto p-6">
           <h1 className="text-2xl font-bold mb-6">Profile Settings</h1>
           <form onSubmit={handleSubmit} className="space-y-6">

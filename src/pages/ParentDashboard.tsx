@@ -1,4 +1,3 @@
-
 import { Navbar } from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { MapView } from "@/components/MapView";
@@ -13,7 +12,7 @@ const ParentDashboard = () => {
         <AppSidebar />
         <div className="flex-1">
           <Navbar />
-          <main className="container mx-auto px-4 py-8 space-y-8">
+          <main className="container mx-auto px-4 py-8 mt-20">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card className="p-4 glass-card hover-scale">
                 <div className="flex items-center space-x-4">
