@@ -19,7 +19,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
             <div className="flex items-center gap-4">
-              <img src="/lovable-uploads/e7ebbeb9-5aa6-406b-ad07-2b788f10ca4d.png" alt="Smart Tracker" className="h-14" />
+              <img src="/lovable-uploads/e7ebbeb9-5aa6-406b-ad07-2b788f10ca4d.png" alt="Smart Tracker" className="h-14 w-28" />
               <SidebarTrigger>
                 <div className="flex flex-col space-y-1.5 hover:text-white text-gray-400 transition-all group">
                   <div className="w-6 h-0.5 bg-current transform transition-all group-hover:translate-y-0.5"></div>
