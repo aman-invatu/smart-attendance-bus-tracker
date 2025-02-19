@@ -14,12 +14,12 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a2236] border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
             <SidebarTrigger>
-              <div className="flex flex-col space-y-1.5 hover:text-primary transition-all group">
+              <div className="flex flex-col space-y-1.5 hover:text-white text-gray-400 transition-all group">
                 <div className="w-6 h-0.5 bg-current transform transition-all group-hover:translate-y-0.5"></div>
                 <div className="w-6 h-0.5 bg-current"></div>
                 <div className="w-6 h-0.5 bg-current transform transition-all group-hover:-translate-y-0.5"></div>
@@ -31,13 +31,13 @@ export const Navbar = () => {
           </div>
           
           <div className="flex items-center space-x-6">
-            <Button variant="ghost" size="icon" className="relative">
+            <Button variant="ghost" size="icon" className="relative text-gray-400 hover:text-white hover:bg-white/10">
               <Bell className="h-5 w-5" />
               <span className="absolute top-1 right-1 h-2 w-2 bg-primary rounded-full" />
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white hover:bg-white/10">
                   <User className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
