@@ -18,15 +18,15 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
-            <SidebarTrigger>
-              <div className="flex flex-col space-y-1.5 hover:text-white text-gray-400 transition-all group">
-                <div className="w-6 h-0.5 bg-current transform transition-all group-hover:translate-y-0.5"></div>
-                <div className="w-6 h-0.5 bg-current"></div>
-                <div className="w-6 h-0.5 bg-current transform transition-all group-hover:-translate-y-0.5"></div>
-              </div>
-            </SidebarTrigger>
             <div className="flex items-center gap-4">
-              <img src="/lovable-uploads/3a7b3290-4432-4467-9f5c-ae04bc291bc7.png" alt="Smart Tracker" className="h-8" />
+              <img src="/lovable-uploads/3a7b3290-4432-4467-9f5c-ae04bc291bc7.png" alt="Smart Tracker" className="h-13" />
+              <SidebarTrigger>
+                <div className="flex flex-col space-y-1.5 hover:text-white text-gray-400 transition-all group">
+                  <div className="w-6 h-0.5 bg-current transform transition-all group-hover:translate-y-0.5"></div>
+                  <div className="w-6 h-0.5 bg-current"></div>
+                  <div className="w-6 h-0.5 bg-current transform transition-all group-hover:-translate-y-0.5"></div>
+                </div>
+              </SidebarTrigger>
             </div>
           </div>
           
